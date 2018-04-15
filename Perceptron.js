@@ -44,7 +44,7 @@ class Perceptron{
 // 
 //training
 let p = new Perceptron();
-const tam = 100;
+const tam = 1000;
 for(let i = 0;i<tam;i++){
     let x = random(0,tam);
     let y = random(0,tam);
@@ -52,7 +52,7 @@ for(let i = 0;i<tam;i++){
     if(x < y){
         output = -1;
     }else{
-        output = -1;
+        output = 1;
     }
     p.train(x,y,output);
 }
@@ -75,4 +75,4 @@ for(let i = 0;i<total;i++){
     }
 }
 
-console.log("Porcentagem de acertos" + (100*score/total));
+console.log("Porcentagem de acertos " + (100*score/total));
