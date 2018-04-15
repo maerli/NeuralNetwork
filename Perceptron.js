@@ -27,7 +27,7 @@ class Perceptron{
     guess(x,y){
         if(this.activate(x,y) > 0){
             return 1;
-        }else
+        }else{
             return -1;
         }
     }
