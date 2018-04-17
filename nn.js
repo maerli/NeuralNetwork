@@ -174,7 +174,8 @@ class NeuralNetwork {
     this.bias_h.map(mutate);
     this.bias_o.map(mutate);
   }
+}
 
-
-
+module.exports = {
+    'NeuralNetwork': NeuralNetwork
 }
