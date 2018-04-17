@@ -1,3 +1,5 @@
+const Matrix = require('./matrix');
+
 // Other techniques for learning
 
 class ActivationFunction {

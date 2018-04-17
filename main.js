@@ -1,10 +1,9 @@
-f
-const NeuralNetwork = 
-require('nn.js');
+let NeuralNetwork = require('./nn.js').NeuralNetwork;
 function random(a = 0, b = 1){
     return a + Math.random()*(b - a);
 }
-let nn;
+
+console.log(NeuralNetwork);
 
 let training_data = [{
     inputs: [0, 0],
@@ -24,7 +23,7 @@ let training_data = [{
   }
 ];
 
-nn = new NeuralNetwork(2, 4, 1);
+let nn = new NeuralNetwork(2, 4, 1);
 
 for (let i = 0; i < 10; i++) {
     let index = Math.floor(random(0,training_data.length));
