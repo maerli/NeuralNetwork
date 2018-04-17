@@ -24,11 +24,13 @@ let training_data = [{
 ];
 
 let nn = new NeuralNetwork(2, 4, 1);
-nn.setLearningRate(0.01);
+nn.setLearningRate(0.1);
 
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 1000; i++) {
+	
     let index = Math.floor(random(0,training_data.length));
+    //console.log(index);
     let data = training_data[index];;
     nn.train(data.inputs, data.outputs);
   }
