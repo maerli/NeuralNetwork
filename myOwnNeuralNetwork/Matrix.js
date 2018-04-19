@@ -84,7 +84,7 @@ class Matrix{
 	}
 	
 	
-	multiply(m1){
+	static multiply(m1){
 		//produto matrcial this.data x m1
 		if(m1 instanceof Array){
 			let m_nrows = m1.nrows;
@@ -104,15 +104,33 @@ class Matrix{
 		}
 	}
 	
-	hadamard(m1,m2){//hadamard product
-		let m3 = new Matrix(m1.nrows,m1.ncols);
+	
+	hadamard(m1){//hadamard product
 		for(let i = 0;i<m1.nrows;i++){
 			for(let j = 0;j<m1.ncols;j++){
-				m3.data[i][j] = m1.data[i][j] * m2.data[i][j]; 
+				this.data[i][j] = this.data[i][j] * m1.data[i][j]; 
 			}
 		}
-		return m3;
+		return this;
 		
+	}
+	
+	subtract(m1){
+		for(let i = 0;i<m1.nrows;i++){
+			for(let j = 0;j<m1.ncols;j++){
+				this.data[i][j] -= m1.data[i][j]; 
+			}
+		}
+		return this;
+	}
+	
+	add(m1){
+		for(let i = 0;i<m1.nrows;i++){
+			for(let j = 0;j<m1.ncols;j++){
+				this.data[i][j] += m1.data[i][j]; 
+			}
+		}
+		return this;
 	}
 	
 	static indentity(nrows,ncols){
