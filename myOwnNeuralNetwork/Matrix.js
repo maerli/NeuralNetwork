@@ -43,6 +43,7 @@ class Matrix{
 				this.data[i][j] = func(this.data[i][j],i,j);
 			}
 		}
+		return this;
 	}
 	transpose(){
 		let m = new Matrix(this.ncols,this.nrows);
@@ -83,10 +84,8 @@ class Matrix{
 		return sum;
 	}
 	
-	
-	static multiply(m1){
-		//produto matrcial this.data x m1
-		if(m1 instanceof Array){
+	multiply(m1){
+		if(m1 instanceof Matrix){
 			let m_nrows = m1.nrows;
 			let m_ncols = m1.ncols;
 			if(m_nrows == this.ncols){
@@ -101,6 +100,24 @@ class Matrix{
 		}else{
 			let m2 = this.copy().map(x=>x*m1);
 			return m2;
+		}
+	}
+	
+	static multiply(m1,m2){
+		//produto matrcial this.data x m1
+		if(m1 instanceof Matrix){
+			let m_nrows = m2.nrows;
+			let m_ncols = m2.ncols;
+			if(m_nrows == m1.ncols){
+				
+				let m3 = new Matrix(m1.nrows,m_ncols);
+				for(let i = 0;i<m3.nrows;i++){
+					for(let j = 0;j<m3.ncols;j++){
+						m3.data[i][j]= Matrix.dot(m1.getRow(i),m2.getCol(j));
+					}
+				}
+			return m3;
+			}
 		}
 	}
 	
