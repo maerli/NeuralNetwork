@@ -1,7 +1,7 @@
 const Matrix = require('./matrix.js')
 
 function sigmoid(){
-	returm 1/(1 + Math.exp(-x));
+	return 1/(1 + Math.exp(-x));
 }
 
 function dsigmoid(fx){
@@ -46,7 +46,10 @@ class NeuralNetwork{
 	train(inputs,targets){
 		let targets = new Matrix([targets]).transpose();
 		let outputs = this.predict(inputs);
-		let output_erro = tagets.subtract(outputs);
+		let output_erro = targets.copy().subtract(outputs);
+		
+		
+		
 		
 		
 		
