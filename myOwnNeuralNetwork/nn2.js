@@ -6,7 +6,7 @@ function sigmoid(x){
 }
 
 function dsigmoid(fx){
-	return fx*(1 - fx*fx);
+	return fx*(1 - fx);
 }
 
 class NeuralNetwork{
